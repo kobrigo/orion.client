@@ -130,7 +130,7 @@ module.exports = function(options) {
 			Directory: stats.isDirectory(),
 			LocalTimeStamp: stats.mtime.getTime(),
 			Parents: getParents(filepath, rest),
-			ChildrenLocation: api.join(fileRoot, rest, '?depth=1'),
+			ChildrenLocation: api.join(fileRoot, rest) +  '?depth=1',
 			//Charset: "UTF-8",
 			Attributes: {
 				// TODO fix this

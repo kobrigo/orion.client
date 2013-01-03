@@ -17,11 +17,12 @@ define(['i18n!orion/edit/nls/messages', 'require', 'orion/Deferred', 'orion/webu
         'orion/problems', 'orion/editor/contentAssist', 'orion/editorCommands', 'orion/editor/editorFeatures', 'orion/editor/editor', 'orion/syntaxchecker',
         'orion/textview/textView', 'orion/textview/textModel', 
         'orion/textview/projectionTextModel', 'orion/textview/keyBinding','orion/searchAndReplace/textSearcher',
-        'orion/edit/dispatcher', 'orion/contentTypes', 'orion/PageUtil', 'orion/highlight', 'orion/i18nUtil', 'orion/edit/syntaxmodel', 'orion/widgets/themes/editor/MiniThemeChooser'],
+        'orion/edit/dispatcher', 'orion/contentTypes', 'orion/PageUtil', 'orion/highlight', 'orion/i18nUtil', 'orion/edit/syntaxmodel', 'orion/widgets/themes/editor/MiniThemeChooser',
+		  'edit/projectOutliner'],
 		function(messages, require, Deferred, lib, mSelection, mStatus, mProgress, mDialogs, mCommands, mFavorites,
 				mFileClient, mOperationsClient, mSearchClient, mGlobalCommands, mOutliner, mProblems, mContentAssist, mEditorCommands, mEditorFeatures, mEditor,
 				mSyntaxchecker, mTextView, mTextModel, mProjectionTextModel, mKeyBinding, mSearcher,
-				mDispatcher, mContentTypes, PageUtil, Highlight, i18nUtil, SyntaxModelWirer, mThemeChooser) {
+				mDispatcher, mContentTypes, PageUtil, Highlight, i18nUtil, SyntaxModelWirer, mThemeChooser,mProjectOutliner) {
 	
 var exports = exports || {};
 	
@@ -33,6 +34,7 @@ exports.setUpEditor = function(serviceRegistry, preferences, isReadOnly){
 	var problemService;
 	var outlineService;
 	var contentTypeService;
+	var projectOutliner = new mProjectOutliner.ProejctDirecotryOutliner({ serviceRegistry:serviceRegistry});
 	
 	// Initialize the plugin registry
 	(function() {
